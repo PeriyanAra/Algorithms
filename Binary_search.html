@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binary search</title>
+    <script>
+        var myArr = [1, 4, 5, 6, 8, 10, 15, 20, 21];
+
+        function binSearch(arr, elem) {
+            let min = 0;
+            let max = arr.length - 1;
+            let mid = Math.floor((min + max) / 2); //use floor in case if array length is odd
+
+            do{
+                if(arr[mid] == elem){
+                    return mid; /* in case if we have luck and the middle element is the one
+                                   that we search (it will return the index of element)*/
+                }
+                else if(arr[mid] > elem){
+                    max = mid - 1;
+                    mid = Math.floor((min + max) / 2);
+                }
+                else if(arr[mid] < elem){
+                    min = mid + 1;
+                    mid = Math.floor((min + max) / 2);
+                }
+            }
+            while(min <= max)
+
+            return -1; // if the array doesn't contain the element we search, the function will return -1
+        }
+
+        console.log(binSearch(myArr, 21));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
